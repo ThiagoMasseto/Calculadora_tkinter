@@ -4,4 +4,6 @@ janela = tk.Tk()
 janela.title("Calculadora")
 
 visor = tk.Entry(janela)
-visor.pack
+visor.pack()
+
+janela.mainloop()
