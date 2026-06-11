@@ -17,9 +17,10 @@ for numero in range(10):
         janela,
         text=str(numero),
         command=lambda n=numero: funcoes.clicar(visor, str(n))
+    
     )
 
-botao.pack() # Exibe o botão na tela
+    botao.pack() # Exibe o botão na tela
 
 janela.mainloop() # Mantém a janela aberta e esperando eventos
                   # como cliques e teclas
