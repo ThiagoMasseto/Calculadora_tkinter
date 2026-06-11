@@ -22,7 +22,7 @@ frame.grid(row=0, column=0)
 # Título
 # ==========================
 
-titulo = tk.label(
+titulo = tk.Label(
     frame,
     text = "Calculadora do Masseto",
     font = ("Arial", 18, "bold")
