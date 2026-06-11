@@ -32,3 +32,24 @@ def calcular(visor): # Função responsável por realizar o cálculo
         visor.delete(0, "end") # Limpa o visor
         
         visor.insert("end", "Erro") # Mostra a mensagem de erro
+
+def calcular(visor): #Realiza o calculo da expressão digitada
+
+    # Obtém o conteúdo do visor
+    conta = visor.get()
+
+    try: 
+        #executa a expressão matemática
+        resultado = eval(conta)
+
+        #Limpa o visor
+        visor.delete(0, "end")
+
+        #Exibe o resultado
+        visor.insert("end", resultado)
+
+    except:
+
+        #Se ocorrer algum erro
+        visor.delete(0, "end")
+        visor.insert("end", "Erro")
