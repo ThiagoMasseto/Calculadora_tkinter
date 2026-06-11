@@ -139,7 +139,7 @@ botao_igual.grid(
 
 janela.bind(
     "<Return>",
-    lambda evento: funcoes.pressionar_enter(evento, visor)
+    lambda evento: funcoes.calcular(visor)
 )
 
 janela.mainloop()
