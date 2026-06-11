@@ -1,23 +1,17 @@
 import tkinter as tk
+import funcoes
 
 janela = tk.Tk()
-janela.title("Calculadora")
 
-# largura x altura
-janela.geometry("300x400") # 300 pixels de largura
-                           # 400 pixels de altura
+visor = tk.Entry(janela)
+visor.pack()
 
-
-visor = tk.Entry(
+botao1 = tk.Button(
     janela,
-    font = ("Arial", 20) # Aumenta o tamanho da letra do visor.
-    )
-
-visor.pack(
-    padx=10, # Espaçamento horizontal.
-    pady=10, # Espaçamento vertical.
-    fill="x"
+    text="1",
+    command=lambda: funcoes.clicar(visor, "1")
 )
 
+botao1.pack()
 
 janela.mainloop()
