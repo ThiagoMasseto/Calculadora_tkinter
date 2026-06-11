@@ -32,6 +32,9 @@ numeros = [
     "1", "2", "3",
     "0"
 ]
+operadores = [
+    "+", "-", "*", "/"
+]
 
 linha = 1
 coluna = 0
@@ -53,6 +56,24 @@ for numero in numeros:
     if coluna > 2 :
         coluna = 0
         linha += 1
+
+linha =1
+
+for operador in operadores :
+    botao = tk.Button(
+        janela,
+        text=operador,
+        width= 5 ,
+        height = 2,
+        command = lambda op= operador: funcoes.clicar(visor,op)
+    )
+    botao.grid(
+        row = linha,
+        column = 3,
+        padx = 2,
+        pady = 2
+    )
+    linha += 1
 
 janela.mainloop() # Mantém a janela aberta e esperando eventos
                   # como cliques e teclas
