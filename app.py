@@ -63,9 +63,11 @@ visor.grid(
     padx=20,
     pady=20,
     sticky="ew"
+    
 )
 
-visor.focus()
+# Dá foco ao visor após a janela ser carregada
+janela.after(100, lambda: visor.focus_set())
 
 # ==========================
 # BOTÕES NUMÉRICOS
