@@ -1,8 +1,14 @@
 import tkinter as tk
+import customtkinter as ctk
 import funcoes
 
+ctk.set_appearance_mode("dark")
+ctk.set_default_color_theme("blue")
+
+COR_AZUL = "#29B6F6"
+
 # Cria a janela principal
-janela = tk.Tk()
+janela = ctk.CTk()
 janela.title("Calculadora")
 
 # Tamanho inicial da janela
@@ -13,7 +19,10 @@ janela.grid_rowconfigure(0, weight=1)
 janela.grid_columnconfigure(0, weight=1)
 
 # Frame que conterá toda a calculadora
-frame = tk.Frame(janela)
+frame = ctk.CTkFrame(
+    janela,
+    corner_radius = 15
+    )
 
 # Centraliza o frame na janela
 frame.grid(row=0, column=0)
@@ -22,10 +31,11 @@ frame.grid(row=0, column=0)
 # Título
 # ==========================
 
-titulo = tk.Label(
+titulo = ctk.CTkLabel(
     frame,
-    text = "Calculadora do Masseto 🎰",
-    font = ("Arial", 30, "bold")
+    text="Calculadora do Masseto 🎰",
+    font=("Arial", 30, "bold"),
+    text_color=COR_AZUL
 )
 
 titulo.grid(
@@ -39,10 +49,11 @@ titulo.grid(
 # VISOR
 # ==========================
 
-visor = tk.Entry(
+visor = ctk.CTkEntry(
     frame,
     font=("Arial", 20),
-    justify="right"
+    justify="right",
+    width=420
 )
 
 visor.grid(
@@ -72,13 +83,22 @@ coluna = 0
 
 for numero in numeros:
 
-    botao = tk.Button(
-        frame,
-        text=numero,
-        width=10,
-        height=4,
-        command=lambda n=numero: funcoes.clicar(visor, n)
-    )
+    botao = ctk.CTkButton(
+    frame,
+    text=numero,
+    width=80,
+    height=60,
+
+    corner_radius=15,
+
+    fg_color="transparent",
+    border_width=2,
+    border_color=COR_AZUL,
+
+    text_color=COR_AZUL,
+
+    command=lambda n=numero: funcoes.clicar(visor, n)
+)
 
     botao.grid(
         row=linha,
@@ -103,13 +123,20 @@ linha = 2
 
 for operador in operadores:
 
-    botao = tk.Button(
-        frame,
-        text=operador,
-        width=10,
-        height=4,
-        command=lambda op=operador: funcoes.clicar(visor, op)
-    )
+    botao = ctk.CTkButton(
+    frame,
+    text=operador,
+    width=80,
+    height=60,
+
+    corner_radius=15,
+
+    fg_color=COR_AZUL,
+
+    text_color="white",
+
+    command=lambda op=operador: funcoes.clicar(visor, op)
+)
 
     botao.grid(
         row=linha,
@@ -124,11 +151,17 @@ for operador in operadores:
 # BOTÃO IGUAL
 # ==========================
 
-botao_igual = tk.Button(
+botao_igual = ctk.CTkButton(
     frame,
     text="=",
-    width=10,
-    height=4,
+    width=80,
+    height=60,
+
+    corner_radius=15,
+
+    fg_color=COR_AZUL,
+    hover_color="#0288D1",
+
     command=lambda: funcoes.calcular(visor)
 )
 
