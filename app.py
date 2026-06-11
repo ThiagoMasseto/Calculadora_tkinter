@@ -2,7 +2,6 @@ import tkinter as tk
 import customtkinter as ctk
 import funcoes
 
-ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("blue")
 
 COR_AZUL = "#29B6F6"
