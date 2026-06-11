@@ -137,4 +137,9 @@ botao_igual.grid(
     pady=4
 )
 
+janela.bind(
+    "<Return>",
+    lambda evento: funcoes.pressionar_enter(evento, visor)
+)
+
 janela.mainloop()

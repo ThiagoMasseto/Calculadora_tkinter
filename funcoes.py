@@ -28,3 +28,7 @@ def calcular(visor):
         visor.delete(0, "end")
 
         visor.insert("end", "Erro")
+
+def pressionar_enter(evento, visor):
+
+    calcular(visor)
