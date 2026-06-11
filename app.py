@@ -75,5 +75,18 @@ for operador in operadores :
     )
     linha += 1
 
+    botao_igual = tk.Button(
+    janela,
+    text="=",
+    width=5,
+    height=2,
+    command=lambda: funcoes.calcular(visor)
+)
+
+    botao_igual.grid(
+    row=5,
+    column=3
+    )
+
 janela.mainloop() # Mantém a janela aberta e esperando eventos
                   # como cliques e teclas
