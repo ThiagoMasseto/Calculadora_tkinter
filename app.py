@@ -19,6 +19,23 @@ frame = tk.Frame(janela)
 frame.grid(row=0, column=0)
 
 # ==========================
+# Título
+# ==========================
+
+titulo = tk.label(
+    frame,
+    text = "Calculadora do Masseto",
+    font = ("Arial", 18, "bold")
+)
+
+titulo.grid(
+    row=0,
+    column=0,
+    columnspan = 4,
+    pady = (10, 5)
+)
+
+# ==========================
 # VISOR
 # ==========================
 
@@ -29,7 +46,7 @@ visor = tk.Entry(
 )
 
 visor.grid(
-    row=0,
+    row=1,
     column=0,
     columnspan=4,
     padx=10,
@@ -48,7 +65,7 @@ numeros = [
     "0"
 ]
 
-linha = 1
+linha = 2
 coluna = 0
 
 for numero in numeros:
@@ -80,7 +97,7 @@ for numero in numeros:
 
 operadores = ["+", "-", "*", "/"]
 
-linha = 1
+linha = 2
 
 for operador in operadores:
 
@@ -114,7 +131,7 @@ botao_igual = tk.Button(
 )
 
 botao_igual.grid(
-    row=5,
+    row=6,
     column=3,
     padx=2,
     pady=2
