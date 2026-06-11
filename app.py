@@ -32,7 +32,7 @@ titulo.grid(
     row=0,
     column=0,
     columnspan = 4,
-    pady = (10, 5)
+    pady = (20, 10)
 )
 
 # ==========================
@@ -49,8 +49,8 @@ visor.grid(
     row=1,
     column=0,
     columnspan=4,
-    padx=10,
-    pady=10,
+    padx=20,
+    pady=20,
     sticky="ew"
 )
 
@@ -73,16 +73,16 @@ for numero in numeros:
     botao = tk.Button(
         frame,
         text=numero,
-        width=5,
-        height=2,
+        width=10,
+        height=4,
         command=lambda n=numero: funcoes.clicar(visor, n)
     )
 
     botao.grid(
         row=linha,
         column=coluna,
-        padx=2,
-        pady=2
+        padx=4,
+        pady=4
     )
 
     coluna += 1
@@ -104,16 +104,16 @@ for operador in operadores:
     botao = tk.Button(
         frame,
         text=operador,
-        width=5,
-        height=2,
+        width=10,
+        height=4,
         command=lambda op=operador: funcoes.clicar(visor, op)
     )
 
     botao.grid(
         row=linha,
         column=3,
-        padx=2,
-        pady=2
+        padx=4,
+        pady=4
     )
 
     linha += 1
@@ -125,16 +125,16 @@ for operador in operadores:
 botao_igual = tk.Button(
     frame,
     text="=",
-    width=5,
-    height=2,
+    width=10,
+    height=4,
     command=lambda: funcoes.calcular(visor)
 )
 
 botao_igual.grid(
     row=6,
     column=3,
-    padx=2,
-    pady=2
+    padx=4,
+    pady=4
 )
 
 janela.mainloop()
