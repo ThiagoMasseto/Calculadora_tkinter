@@ -26,9 +26,17 @@ visor.grid( # Posiciona o visor usando o gerenciador de layout grid
 
 # loop de repeticao, para criação dos botões.
 
-linha = 0
+numeros = [
+    "7", "8", "9",
+    "4", "5", "6",
+    "1", "2", "3",
+    "0"
+]
+
+linha = 1
 coluna = 0
-for numero in range(10):
+
+for numero in numeros:
     botao = tk.Button(
         janela,
         text=str(numero),
@@ -45,8 +53,6 @@ for numero in range(10):
     if coluna > 2 :
         coluna = 0
         linha += 1
-
-    botao.pack() # Exibe o botão na tela
 
 janela.mainloop() # Mantém a janela aberta e esperando eventos
                   # como cliques e teclas
