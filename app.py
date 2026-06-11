@@ -12,6 +12,9 @@ visor = tk.Entry(janela) # Cria o visor da calculadora
 visor.pack() # Exibe o visor na tela
 
 # loop de repeticao, para criação dos botões.
+
+linha = 0
+coluna = 0
 for numero in range(10):
     botao = tk.Button(
         janela,
@@ -19,6 +22,16 @@ for numero in range(10):
         command=lambda n=numero: funcoes.clicar(visor, str(n))
     
     )
+    
+    botao.grid(
+        row = linha,
+        column= coluna
+    )
+    coluna +=1
+
+    if coluna > 2 :
+        coluna = 0
+        linha += 1
 
     botao.pack() # Exibe o botão na tela
 
