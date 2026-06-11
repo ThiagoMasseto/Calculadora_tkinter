@@ -54,6 +54,8 @@ visor.grid(
     sticky="ew"
 )
 
+visor.focus()
+
 # ==========================
 # BOTÕES NUMÉRICOS
 # ==========================
