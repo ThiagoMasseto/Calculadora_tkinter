@@ -1,35 +1,45 @@
-# cria janela
-# cria visor
-# cria botões
-# posiciona botões
-
 import tkinter as tk
-# Importa a biblioteca Tkinter
-# e dá o apelido de tk
 import funcoes
-# Importa o arquivo funcoes.py
 
-janela = tk.Tk() # Cria a janela principal da aplicação
-janela.title("Calculadora") # Define o título que aparece na barra superior
+# Cria a janela principal
+janela = tk.Tk()
+janela.title("Calculadora")
+
+# Tamanho inicial da janela
+janela.geometry("400x400")
+
+# Faz a única célula da janela expandir
+janela.grid_rowconfigure(0, weight=1)
+janela.grid_columnconfigure(0, weight=1)
+
+# Frame que conterá toda a calculadora
+frame = tk.Frame(janela)
+
+# Centraliza o frame na janela
+frame.grid(row=0, column=0)
+
+# ==========================
+# VISOR
+# ==========================
 
 visor = tk.Entry(
-    janela, # Cria o visor da calculadora onde os números serão exibidos
-     font = ("Arial", 20), #Fonte do Texto
+    frame,
+    font=("Arial", 20),
+    justify="right"
+)
 
-     justify = "right" #alinha o texto a direita igual as calculadoras reais        
-            
-             )
+visor.grid(
+    row=0,
+    column=0,
+    columnspan=4,
+    padx=10,
+    pady=10,
+    sticky="ew"
+)
 
-visor.grid( # Posiciona o visor usando o gerenciador de layout grid
-    row = 0, # Coloca o visor na linha 0
-    column=0, # Coloca o visor na coluna 0
-    columnspan=3, # Faz o visor ocupar 3 colunas
-    padx = 10, # Adiciona um espaçamento horizontal
-    pady = 10 # Adiciona um espaçamento vertical
-
-) # Exibe o visor na tela
-
-# loop de repeticao, para criação dos botões.
+# ==========================
+# BOTÕES NUMÉRICOS
+# ==========================
 
 numeros = [
     "7", "8", "9",
@@ -37,61 +47,77 @@ numeros = [
     "1", "2", "3",
     "0"
 ]
-operadores = [
-    "+", "-", "*", "/"
-]
 
 linha = 1
 coluna = 0
 
 for numero in numeros:
-    botao = tk.Button(
-        janela,
-        text=str(numero),
-        command=lambda n=numero: funcoes.clicar(visor, str(n))
-    
-    )
-    
-    botao.grid(
-        row = linha,
-        column= coluna
-    )
-    coluna +=1
 
-    if coluna > 2 :
+    botao = tk.Button(
+        frame,
+        text=numero,
+        width=5,
+        height=2,
+        command=lambda n=numero: funcoes.clicar(visor, n)
+    )
+
+    botao.grid(
+        row=linha,
+        column=coluna,
+        padx=2,
+        pady=2
+    )
+
+    coluna += 1
+
+    if coluna > 2:
         coluna = 0
         linha += 1
 
-linha =1
+# ==========================
+# OPERADORES
+# ==========================
 
-for operador in operadores :
+operadores = ["+", "-", "*", "/"]
+
+linha = 1
+
+for operador in operadores:
+
     botao = tk.Button(
-        janela,
+        frame,
         text=operador,
-        width= 5 ,
-        height = 2,
-        command = lambda op= operador: funcoes.clicar(visor,op)
+        width=5,
+        height=2,
+        command=lambda op=operador: funcoes.clicar(visor, op)
     )
+
     botao.grid(
-        row = linha,
-        column = 3,
-        padx = 2,
-        pady = 2
+        row=linha,
+        column=3,
+        padx=2,
+        pady=2
     )
+
     linha += 1
 
-    botao_igual = tk.Button(
-    janela,
+# ==========================
+# BOTÃO IGUAL
+# ==========================
+
+botao_igual = tk.Button(
+    frame,
     text="=",
     width=5,
     height=2,
     command=lambda: funcoes.calcular(visor)
 )
 
-    botao_igual.grid(
+botao_igual.grid(
     row=5,
-    column=3
-    )
+    column=3,
+    padx=2,
+    pady=2
+)
 
-janela.mainloop() # Mantém a janela aberta e esperando eventos
-                  # como cliques e teclas
+janela.mainloop()
