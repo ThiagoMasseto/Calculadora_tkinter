@@ -1,3 +1,8 @@
+# cria janela
+# cria visor
+# cria botões
+# posiciona botões
+
 import tkinter as tk
 # Importa a biblioteca Tkinter
 # e dá o apelido de tk
