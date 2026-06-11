@@ -179,4 +179,29 @@ janela.bind(
     lambda evento: funcoes.calcular(visor)
 )
 
+# ==========================
+# BOTÃO AC
+# ==========================
+
+botao_ac = ctk.CTkButton(
+    frame,
+    text="AC",
+    width=80,
+    height=60,
+
+    corner_radius=15,
+
+    fg_color="#EF5350",
+    hover_color="#E53935",
+
+    command=lambda: funcoes.limpar(visor)
+)
+
+botao_ac.grid(
+    row=2,
+    column=0,
+    padx=4,
+    pady=4
+)
+
 janela.mainloop()
