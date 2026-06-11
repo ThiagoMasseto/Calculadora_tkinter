@@ -7,9 +7,22 @@ import funcoes
 janela = tk.Tk() # Cria a janela principal da aplicação
 janela.title("Calculadora") # Define o título que aparece na barra superior
 
-visor = tk.Entry(janela) # Cria o visor da calculadora
-                         # onde os números serão exibidos
-visor.pack() # Exibe o visor na tela
+visor = tk.Entry(
+    janela, # Cria o visor da calculadora onde os números serão exibidos
+     font = ("Arial", 20), #Fonte do Texto
+
+     justify = "right" #alinha o texto a direita igual as calculadoras reais        
+            
+             )
+
+visor.grid( # Posiciona o visor usando o gerenciador de layout grid
+    row = 0, # Coloca o visor na linha 0
+    column=0, # Coloca o visor na coluna 0
+    columnspan=3, # Faz o visor ocupar 3 colunas
+    padx = 10, # Adiciona um espaçamento horizontal
+    pady = 10 # Adiciona um espaçamento vertical
+
+) # Exibe o visor na tela
 
 # loop de repeticao, para criação dos botões.
 
