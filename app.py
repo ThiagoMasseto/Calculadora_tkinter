@@ -121,7 +121,7 @@ for numero in numeros:
 
 operadores = ["+", "-", "*", "/"]
 
-linha = 2
+linha = 3
 
 for operador in operadores:
 
@@ -177,6 +177,11 @@ botao_igual.grid(
 janela.bind(
     "<Return>",
     lambda evento: funcoes.calcular(visor)
+)
+
+janela.bind(
+    "<Escape>",
+    lambda evento: funcoes.limpar(visor)
 )
 
 # ==========================
